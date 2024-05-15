@@ -1,0 +1,61 @@
+@model IEnumerable<UserModel>
+
+@{
+    ViewData["Title"] = "Lista de Usuários";
+}
+
+<h1>@ViewData["Listagem de usuarios"]</h1>
+
+<br/>
+
+@if(TempData["MensagemSucesso"] != null)
+    {
+        <div class="alert alert-success" role="alert">
+            <button type="button" class="btn btn-danger btn-sm close-alert" aria-label="Close">X</button>
+            @TempData["MensagemSucesso"]
+        </div>
+
+    }
+
+    @if (TempData["MensagemErro"] != null)
+    {
+        <div class="alert alert-danger" role="alert">
+            <button type="button" class="btn btn-danger btn-sm close-alert" arial-label="Close">X</button>
+            @TempData["MensagemErro"]
+        </div>
+    }
+
+<table class="table" id="table-users">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Nome</th>
+            <th>Email</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @if(Model != null && Model.Any())
+        {
+                @foreach (var user in Model)
+            {
+                <tr>
+                    <td scope="row">@user.Id</td>
+                    <td>@user.Name</td>
+                    <td>@user.Email</td>
+                    <td>
+                        <a asp-action="Details" asp-route-id="@user.Id">Detalhes</a> |
+                        <a asp-action="Edit" asp-route-id="@user.Id">Editar</a> |
+                        <a asp-action="Delete" asp-route-id="@user.Id">Excluir</a>
+                    </td>
+                </tr>
+            }
+        }
+        else
+        {
+            <tr class="odd"><td valign="top" colspan="5">Nenhum usuario encontrado</td></tr>
+        }
+    </tbody>
+</table>
+
+<a asp-action="Cadastro">Adicionar Novo Usuário</a>

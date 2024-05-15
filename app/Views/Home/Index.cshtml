@@ -1,0 +1,17 @@
+﻿@using System.Collections
+@model IEnumerable<app.Models.AltitudeModel>
+
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<ul>
+
+    @foreach (var record in Model)
+    {
+        
+        <li>@record.DisplayText</li>
+
+    }
+</ul>
