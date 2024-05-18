@@ -1,49 +1,5 @@
-// using app.Invocables;
-// using app.Services;
-// using Coravel;
-// using Microsoft.AspNetCore.Builder;
-// using Microsoft.Extensions.DependencyInjection;
-
-// var builder = WebApplication.CreateBuilder(args);
-
-// // Adiciona serviços ao contêiner.
-// builder.Services.AddControllersWithViews();
-// builder.Services.AddSingleton<InfluxDBService>(); // Adiciona o serviço InfluxDBService
-// builder.Services.AddTransient<WriteRandomPlaneAltitudeInvocable>();
-// builder.Services.AddScheduler();
-
-// var app = builder.Build();
-
-// var serviceProvider = app.Services;
-
-// serviceProvider.UseScheduler(scheduler =>
-// {
-//     scheduler
-//         .Schedule<WriteRandomPlaneAltitudeInvocable>()
-//         .EveryFiveSeconds();
-// });
-
-// // Configure o pipeline de solicitação HTTP.
-// if (!app.Environment.IsDevelopment())
-// {
-//     app.UseExceptionHandler("/Home/Error");
-//     // O valor padrão do HSTS é de 30 dias. Você pode querer mudar isso para cenários de produção, veja https://aka.ms/aspnetcore-hsts.
-//     app.UseHsts();
-// }
-
-// app.UseHttpsRedirection();
-// app.UseStaticFiles();
-
-// app.UseRouting();
-
-// app.UseAuthorization();
-
-// app.MapControllerRoute(
-//     name: "default",
-//     pattern: "{controller=Home}/{action=Index}/{id?}");
-
-// app.Run();
 using app.Data;
+using app.Helpers;
 using app.Invocables;
 using app.Repositories;
 using app.Services;
@@ -70,6 +26,18 @@ builder.Services.AddDbContext<BancoContext>(opts =>
     opts.UseSqlServer(connectionString));
 
 builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<ISessions, Session>();
+
+
+builder.Services.AddSession(x =>
+{
+    x.Cookie.HttpOnly = true;
+    x.Cookie.IsEssential = true;
+});
+
+//Confiruando HttpContext
+
+builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
 var app = builder.Build();
 
@@ -97,6 +65,7 @@ app.UseStaticFiles();
 app.UseRouting();
 
 app.UseAuthorization();
+app.UseSession();
 
 app.MapControllerRoute(
     name: "default",

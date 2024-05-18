@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using app.Helpers;
 using app.Models;
 using app.Repositories;
 using Microsoft.AspNetCore.Mvc;
@@ -13,15 +14,26 @@ namespace app.Controllers
     public class LoginController : Controller
     {
         private readonly IUserRepository _userRepository;
+        private readonly ISessions _sessions;
 
-        public LoginController(IUserRepository userRepository)
+        public LoginController(IUserRepository userRepository, ISessions sessions)
         {
             _userRepository = userRepository;
+            _sessions = sessions;
         }
 
         public IActionResult Index()
         {
+            //Se o Usuario estiver Logado, redirecionar para Home
+            if (_sessions.FindSessionForUser() != null) return RedirectToAction("Index", "Home");
             return View();
+        }
+
+        public IActionResult Exit()
+        {
+            _sessions.RemoveSessionForUser();
+
+            return RedirectToAction("Index", "Login");
         }
 
         [HttpPost]
@@ -36,6 +48,7 @@ namespace app.Controllers
                     {
                         if (user.PasswordValid(loginModel.Password))
                         {
+                            _sessions.CreateSessionForUser(user);
                             return RedirectToAction("Index", "Home");
                         }
                         TempData["MensagemErro"] = $"Senha do usuario e' invalida. Por favor, tente novamente";

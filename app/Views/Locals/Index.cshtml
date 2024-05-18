@@ -1,12 +1,11 @@
-@using System.Collections
-@model IEnumerable<app.Models.LocalsModel>
+@model IEnumerable<LocalsModel>
 
 
 @{
     ViewData["Title"] = "Locals Page";
 }
 
-<ul>
+@* <ul>
 
     @foreach (var record in Model)
     {
@@ -14,4 +13,37 @@
         <li>@record.DisplayText</li>
 
     }
-</ul>
+</ul> *@
+
+<div class="text-center">
+
+
+    <table class="table" id="table-locals">
+        <thead>
+            <tr>
+                <th>Time</th>
+                <th>Codigo de Referencia</th>
+                <th>Mensagem de Display</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @if(Model != null && Model.Any())
+            {
+                    @foreach (var local in Model)
+                {
+                    <tr>
+                        <td scope="row">@local.Time</td>
+                        <td>@local.CodeReference</td>
+                        <td>@local.DisplayText</td>
+                    </tr>
+                }
+            }
+            else
+            {
+                <tr class="odd"><td valign="top" colspan="5">Nenhum local encontrado</td></tr>
+            }
+        </tbody>
+    </table>
+
+</div>

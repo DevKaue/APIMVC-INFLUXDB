@@ -5,6 +5,7 @@
 
 $(document).ready(function () {
   getDatatable("#table-users");
+  getDatatable("table-locals");
 });
 
 function getDatatable(id) {
