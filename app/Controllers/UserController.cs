@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using app.Models;
+using app.Repositories;
 using app.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -13,144 +14,120 @@ namespace app.Controllers
     // [Route("[controller]")]
     public class UserController : Controller
     {
-        private readonly InfluxDBService _influxDBService;
-        private readonly ILogger<UserController> _logger;
+        private readonly IUserRepository _userRepository;
 
-        public UserController(ILogger<UserController> logger, InfluxDBService influxDBService)
+        public UserController(IUserRepository userRepository)
         {
-            _logger = logger;
-            _influxDBService = influxDBService;
+            _userRepository = userRepository;
         }
 
-        public async Task<IActionResult> Index()
+        public IActionResult Index()
         {
-            var users = await _influxDBService.QueryUsersAsync();
+            List<UserModel> users = _userRepository.GetAll();
             return View(users);
         }
 
-        // GetById
-
-        // public async Task<IActionResult> GetUsersById(int? id)
-        // {
-        //     if (id == null)
-        //     {
-        //         return NotFound();
-        //     }
-
-        //     var users = await _influxDBService.QueryUsersAsync();
-        //     var user = users.FirstOrDefault(u => u.Id == id);
-
-        //     if (user == null)
-        //     {
-        //         return NotFound();
-        //     }
-
-        //     return View(user);
-        // }
-
-        public IActionResult Cadastro()
+        public IActionResult Create()
         {
             return View();
         }
 
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,Email")] UserModel user)
+        public IActionResult EditUser(int id)
         {
-            if (ModelState.IsValid)
-            {
-                try
-                {
-                    var users = await _influxDBService.QueryUsersAsync();
-                    user.Id = users.Any() ? users.Max(u => u.Id) + 1 : 1;
-                    await _influxDBService.WriteUserAsync(user);
-                    TempData["MensagemSucesso"] = "Contato cadastrado com sucess!";
-                    return RedirectToAction(nameof(Index));
-                }
-                catch (Exception ex)
-                {
-                    TempData["MensagemErro"] = $"Ops!, nao foi possivel cadastrar o usuario. Erro: {ex.Message}";
-                    return RedirectToAction(nameof(Index));
-                }
-            }
-            return View("Cadastro", user);
-        }
-
-        public async Task<IActionResult> Edit(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var users = await _influxDBService.QueryUsersAsync();
-            var user = users.FirstOrDefault(u => u.Id == id);
-
-            if (user == null)
-            {
-                return NotFound();
-            }
-
+            UserModel user = _userRepository.GetUsersById(id);
             return View(user);
         }
 
-        // Metodos a Criar
-
-        // [HttpPost]
-        // [ValidateAntiForgeryToken]
-        // public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Email")] UserModel user)
-        // {
-        //     if (id != user.Id)
-        //     {
-        //         return NotFound();
-        //     }
-
-        //     if (ModelState.IsValid)
-        //     {
-        //         try
-        //         {
-        //             await _influxDBService.UpdateUserAsync(user);
-        //         }
-        //         catch
-        //         {
-        //             return NotFound();
-        //         }
-        //         return RedirectToAction(nameof(Index));
-        //     }
-        //     return View(user);
-        // }
-
-        // public async Task<IActionResult> Delete(int? id)
-        // {
-        //     if (id == null)
-        //     {
-        //         return NotFound();
-        //     }
-
-        //     var users = await _influxDBService.QueryUsersAsync();
-        //     var user = users.FirstOrDefault(u => u.Id == id);
-
-        //     if (user == null)
-        //     {
-        //         return NotFound();
-        //     }
-
-        //     return View(user);
-        // }
-
-        // [HttpPost, ActionName("Delete")]
-        // [ValidateAntiForgeryToken]
-        // public async Task<IActionResult> DeleteConfirmed(int id)
-        // {
-        //     var user = await _influxDBService.GetUserByIdAsync(id);
-        //     await _influxDBService.DeleteUserAsync(user);
-        //     return RedirectToAction(nameof(Index));
-        // }
-
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
+        public IActionResult DeleteConfirmation(int id)
         {
-            return View("Error!");
+            UserModel user = _userRepository.GetUsersById(id);
+            return View(user);
         }
+
+
+
+        [HttpPost]
+        public IActionResult Create(UserModel user)
+        {
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    user = _userRepository.AddUser(user);
+
+                    TempData["MensagemSucesso"] = "Usuario cadastrado com sucesso!";
+                    return RedirectToAction("Index");
+                }
+                return View(user);
+            }
+            catch (Exception error)
+            {
+
+                TempData["MensagemSucesso"] = $"Ops, nao foi possivel realizar o cadastro, tente novamente, detalhe do erro: {error.Message}";
+                return RedirectToAction("Index");
+            }
+        }
+
+        public IActionResult Delete(int id)
+        {
+            try
+            {
+                bool deleted = _userRepository.DeleteUser(id);
+
+                if (deleted)
+                {
+                    TempData["MensagemSucesso"] = "Usuario apagado com sucesso!";
+                }
+                else
+                {
+                    TempData["MensagemErro"] = "Ops!, não conseguimos apagar seu usuario";
+                }
+
+                return RedirectToAction("Index");
+            }
+            catch (Exception ex)
+            {
+                TempData["MensagemErro"] = $"Ops!, não foi possível apagar seu usuario, tente novamente. Erro: {ex.Message}";
+                return RedirectToAction("Index");
+            }
+
+        }
+
+        [HttpPost]
+        public IActionResult EditUser(UserNoPassword userNoPassword)
+        {
+
+            try
+            {
+                UserModel? user = null;
+
+                if (ModelState.IsValid)
+                {
+                    user = new UserModel()
+                    {
+                        Id = userNoPassword.Id,
+                        Name = userNoPassword.Name,
+                        Login = userNoPassword.Login,
+                        Email = userNoPassword.Email,
+                        Profile = userNoPassword.Profile
+                    };
+
+                    user = _userRepository.EditUser(user);
+                    TempData["MensagemSucesso"] = "Usuario atualizado com sucesso!";
+                    return RedirectToAction("Index");
+                }
+            }
+            catch (Exception ex)
+            {
+                TempData["MensagemErro"] = $"Ops!, não foi possível atualizar seu usuario, tente novamente. Erro: {ex.Message}";
+                return RedirectToAction("Index");
+            }
+
+            // Se houver algum erro no modelo ou uma exceção ao adicionar o contato, 
+            // retorne a mesma view com os dados do contato para que o usuário possa corrigir
+            return View("Index");
+
+        }
+
     }
 }

@@ -1,0 +1,17 @@
+@using System.Collections
+@model IEnumerable<app.Models.LocalsModel>
+
+
+@{
+    ViewData["Title"] = "Locals Page";
+}
+
+<ul>
+
+    @foreach (var record in Model)
+    {
+        
+        <li>@record.DisplayText</li>
+
+    }
+</ul>

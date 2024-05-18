@@ -43,10 +43,13 @@
 //     pattern: "{controller=Home}/{action=Index}/{id?}");
 
 // app.Run();
+using app.Data;
 using app.Invocables;
+using app.Repositories;
 using app.Services;
 using Coravel;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -59,7 +62,14 @@ builder.Services.AddSingleton<InfluxDBService>(); // Adiciona o serviço InfluxD
 builder.Services.AddTransient<WriteRandomPlaneAltitudeInvocable>();
 builder.Services.AddScheduler();
 
+//Configs do Banco em SQLSERVER
 
+var connectionString = builder.Configuration.GetConnectionString("DataConnection");
+
+builder.Services.AddDbContext<BancoContext>(opts =>
+    opts.UseSqlServer(connectionString));
+
+builder.Services.AddScoped<IUserRepository, UserRepository>();
 
 var app = builder.Build();
 
@@ -90,6 +100,6 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=Login}/{action=Index}/{id?}");
 
 app.Run();

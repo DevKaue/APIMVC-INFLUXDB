@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Faculdade\\7Semestre\\IOT\\TesteAPI\\app\\app.csproj": {}
+    "d:\\Faculdade\\7Semestre\\IOT\\TesteAPI\\app\\app.csproj": {}
   },
   "projects": {
-    "D:\\Faculdade\\7Semestre\\IOT\\TesteAPI\\app\\app.csproj": {
+    "d:\\Faculdade\\7Semestre\\IOT\\TesteAPI\\app\\app.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Faculdade\\7Semestre\\IOT\\TesteAPI\\app\\app.csproj",
+        "projectUniqueName": "d:\\Faculdade\\7Semestre\\IOT\\TesteAPI\\app\\app.csproj",
         "projectName": "app",
-        "projectPath": "D:\\Faculdade\\7Semestre\\IOT\\TesteAPI\\app\\app.csproj",
+        "projectPath": "d:\\Faculdade\\7Semestre\\IOT\\TesteAPI\\app\\app.csproj",
         "packagesPath": "C:\\Users\\Kaue\\.nuget\\packages\\",
-        "outputPath": "D:\\Faculdade\\7Semestre\\IOT\\TesteAPI\\app\\obj\\",
+        "outputPath": "d:\\Faculdade\\7Semestre\\IOT\\TesteAPI\\app\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Kaue\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -45,6 +45,30 @@
             "InfluxDB.Client": {
               "target": "Package",
               "version": "[4.14.0, )"
+            },
+            "Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation": {
+              "target": "Package",
+              "version": "[6.0.24, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[6.0.24, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[6.0.24, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[6.0.24, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[6.0.24, )"
             }
           },
           "imports": [
