@@ -28,5 +28,11 @@ namespace app.Models
         [Required(ErrorMessage = "Digite o perfil do Usuario")]
         public ProfilesEnum? Profile { get; set; }
 
+
+        public bool PasswordValid(string password)
+        {
+            return Password == password;
+        }
+
     }
 }

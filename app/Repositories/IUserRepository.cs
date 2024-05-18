@@ -8,6 +8,7 @@ namespace app.Repositories
 {
     public interface IUserRepository
     {
+        UserModel FindForLogin(string login);
         List<UserModel> GetAll();
         UserModel GetUsersById(int id);
         UserModel AddUser(UserModel user);

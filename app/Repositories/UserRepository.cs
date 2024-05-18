@@ -26,6 +26,11 @@ namespace app.Repositories
             return _bancoContext.Users.FirstOrDefault(x => x.Id == id);
         }
 
+        public UserModel FindForLogin(string login)
+        {
+            return _bancoContext.Users.FirstOrDefault(x => x.Login.ToUpper() == login.ToUpper());
+        }
+
         public UserModel AddUser(UserModel user)
         {
             //inserindo dados no Banco
@@ -63,6 +68,7 @@ namespace app.Repositories
             return true;
 
         }
+
 
     }
 }
