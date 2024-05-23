@@ -51,8 +51,8 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/Faculdade/7Semestre/IOT/TesteAPI/app/Views/User/DeleConfirmation.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxEZWxlQ29uZmlybWF0aW9uLmNzaHRtbA==
+[d:/Faculdade/7Semestre/IOT/TesteAPI/app/Views/User/DeleteConfirmation.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxEZWxldGVDb25maXJtYXRpb24uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [d:/Faculdade/7Semestre/IOT/TesteAPI/app/Views/User/EditUser.cshtml]

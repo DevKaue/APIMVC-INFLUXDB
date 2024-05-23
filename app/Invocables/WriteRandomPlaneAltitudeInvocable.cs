@@ -45,7 +45,7 @@ namespace app.Invocables
                     .Field("value", _random.Next(1, 5))
                     .Timestamp(DateTime.UtcNow, WritePrecision.Ns);
 
-                write.WritePoint(point, "teste-bucket", "CO2COMPANY");
+                write.WritePoint(point, "teste-bucket", "fmhk");
             });
 
             return Task.CompletedTask;

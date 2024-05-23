@@ -72,7 +72,7 @@ namespace app.Controllers
             var results = await service.QueryAsync(async query =>
             {
                 var flux = "from(bucket:\"teste-bucket\") |> range(start: 0)";
-                var tables = await query.QueryAsync(flux, "CO2COMPANY");
+                var tables = await query.QueryAsync(flux, "fmhk");
 
                 return tables.SelectMany(table =>
                     table.Records.Select(record =>
