@@ -34,13 +34,22 @@ namespace app.Services
 
         }
 
+        // [Obsolete]
+        // public void Write(Action<WriteApi> action)
+        // {
+        //     using var client = InfluxDBClientFactory.Create("http://4.228.218.139:8086", _token);
+        //     using var write = client.GetWriteApi();
+        //     action(write);
+        // }
+
         [Obsolete]
-        public void Write(Action<WriteApi> action)
+        public async Task WriteAsync(PointData point, string bucket, string org)
         {
             using var client = InfluxDBClientFactory.Create("http://4.228.218.139:8086", _token);
-            using var write = client.GetWriteApi();
-            action(write);
+            var writeApiAsync = client.GetWriteApiAsync();
+            await writeApiAsync.WritePointAsync(point, bucket, org);
         }
+
 
         [Obsolete]
         public async Task<T> QueryAsync<T>(Func<QueryApi, Task<T>> action)
