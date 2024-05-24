@@ -31,13 +31,15 @@ namespace app.Controllers
         {
             return View();
         }
-
+        [HttpPost("User/edit/{id}")]
         public IActionResult EditUser(int id)
         {
             UserModel user = _userRepository.GetUsersById(id);
             return View(user);
         }
 
+
+        [HttpDelete("User/delete/{id}")]
         public IActionResult DeleteConfirmation(int id)
         {
             UserModel user = _userRepository.GetUsersById(id);
@@ -46,7 +48,7 @@ namespace app.Controllers
 
 
 
-        [HttpPost]
+        [HttpPost("User/create")]
         public IActionResult Create(UserModel user)
         {
             try
@@ -67,6 +69,7 @@ namespace app.Controllers
                 return RedirectToAction("Index");
             }
         }
+
 
         public IActionResult Delete(int id)
         {
@@ -93,7 +96,6 @@ namespace app.Controllers
 
         }
 
-        [HttpPost]
         public IActionResult EditUser(UserNoPassword userNoPassword)
         {
 

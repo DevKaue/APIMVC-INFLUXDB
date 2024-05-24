@@ -1,26 +1,32 @@
 {
   "format": 1,
   "restore": {
-    "d:\\Faculdade\\7Semestre\\IOT\\TesteAPI\\app\\app.csproj": {}
+    "C:\\Users\\ModalGR\\Desktop\\Facul\\APIINFLUX\\APIMVC-INFLUXDB\\app\\app.csproj": {}
   },
   "projects": {
-    "d:\\Faculdade\\7Semestre\\IOT\\TesteAPI\\app\\app.csproj": {
+    "C:\\Users\\ModalGR\\Desktop\\Facul\\APIINFLUX\\APIMVC-INFLUXDB\\app\\app.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "d:\\Faculdade\\7Semestre\\IOT\\TesteAPI\\app\\app.csproj",
+        "projectUniqueName": "C:\\Users\\ModalGR\\Desktop\\Facul\\APIINFLUX\\APIMVC-INFLUXDB\\app\\app.csproj",
         "projectName": "app",
-        "projectPath": "d:\\Faculdade\\7Semestre\\IOT\\TesteAPI\\app\\app.csproj",
-        "packagesPath": "C:\\Users\\Kaue\\.nuget\\packages\\",
-        "outputPath": "d:\\Faculdade\\7Semestre\\IOT\\TesteAPI\\app\\obj\\",
+        "projectPath": "C:\\Users\\ModalGR\\Desktop\\Facul\\APIINFLUX\\APIMVC-INFLUXDB\\app\\app.csproj",
+        "packagesPath": "C:\\Users\\ModalGR\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\ModalGR\\Desktop\\Facul\\APIINFLUX\\APIMVC-INFLUXDB\\app\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Kaue\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\ModalGR\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
-          "https://api.nuget.org/v3/index.json": {}
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://pkgs.dev.azure.com/csn/Portal_NGT/_packaging/ngt-packages/nuget/v3/index.json": {}
         },
         "frameworks": {
           "net6.0": {
@@ -32,6 +38,11 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -69,6 +80,14 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[6.0.24, )"
+            },
+            "Microsoft.OpenApi": {
+              "target": "Package",
+              "version": "[1.6.14, )"
+            },
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[6.6.1, )"
             }
           },
           "imports": [
@@ -82,6 +101,24 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[6.0.28, 6.0.28]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Host.win-x64",
+              "version": "[6.0.28, 6.0.28]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[6.0.28, 6.0.28]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[6.0.28, 6.0.28]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
@@ -90,7 +127,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.402\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202\\RuntimeIdentifierGraph.json"
         }
       }
     }

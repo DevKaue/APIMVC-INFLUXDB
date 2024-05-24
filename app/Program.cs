@@ -7,6 +7,7 @@ using Coravel;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -20,10 +21,19 @@ builder.Services.AddScheduler();
 
 //Configs do Banco em SQLSERVER
 
-var connectionString = builder.Configuration.GetConnectionString("DataConnection");
+// var connectionString = builder.Configuration.GetConnectionString("DataConnection");
 
+//Connection String Banco 2
+var connectionString2 = builder.Configuration.GetConnectionString("DataConnection2");
+
+
+//BANCO 1
+// builder.Services.AddDbContext<BancoContext>(opts =>
+//     opts.UseSqlServer(connectionString));
+
+//BANCO 2
 builder.Services.AddDbContext<BancoContext>(opts =>
-    opts.UseSqlServer(connectionString));
+    opts.UseSqlServer(connectionString2));
 
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<ISessions, Session>();
@@ -35,13 +45,31 @@ builder.Services.AddSession(x =>
     x.Cookie.IsEssential = true;
 });
 
-//Confiruando HttpContext
+//Configuando HttpContext
 
 builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+
+
+
+//Configurando Swagger
+builder.Services.AddControllers();
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen(c =>
+{
+    c.SwaggerDoc("v1", new OpenApiInfo { Title = "My API", Version = "v1" });
+});
+
 
 var app = builder.Build();
 
 var serviceProvider = app.Services;
+
+// Configure the HTTP request pipeline.
+if (app.Environment.IsDevelopment())
+{
+    app.UseSwagger();
+    app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1"));
+}
 
 serviceProvider.UseScheduler(scheduler =>
 {
@@ -65,6 +93,7 @@ app.UseStaticFiles();
 app.UseRouting();
 
 app.UseAuthorization();
+app.MapControllers();
 app.UseSession();
 
 app.MapControllerRoute(
