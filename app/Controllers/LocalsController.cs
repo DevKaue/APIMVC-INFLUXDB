@@ -10,6 +10,17 @@ using Microsoft.Extensions.Logging;
 
 namespace app.Controllers
 {
+
+    public class SensorLimitValues
+    {
+        public const double TemperaturaMaxima = 50.0;
+        public const double TemperaturaMinima = 18.0;
+        public const double UmidadeMaxima = 70.0;
+        public const double UmidadeMinima = 20.0;
+        public const double LevelMaximoCO2 = 1000.0;
+        public const double LevelMinimoCO2 = 400.0;
+    }
+
     public class LocalsController : Controller
     {
         private readonly ILogger<LocalsController> _logger;
@@ -89,6 +100,20 @@ namespace app.Controllers
             }
         }
 
+        // public IActionResult Alertas()
+        // {
+
+
+        //     var model = new AlertModels
+        //     {
+        //         SensorData = sensorData,
+        //         TemperaturaAlert = sensorData.Temperatura < SensorLimitValues.TemperaturaMinima || sensorData.Temperatura > SensorLimitValues.TemperaturaMaxima,
+        //         UmidadeAlert = sensorData.Umidade < SensorLimitValues.UmidadeMinima || sensorData.Umidade > SensorLimitValues.UmidadeMaxima,
+        //         LevelCO2Alert = sensorData.CO2Level < SensorLimitValues.LevelMinimoCO2 || sensorData.CO2Level > SensorLimitValues.LevelMaximoCO2
+        //     };
+
+        //     return View(model);
+        // }
 
     }
 }
