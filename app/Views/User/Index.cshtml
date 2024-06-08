@@ -5,9 +5,75 @@
     ViewData["Title"] = "Lista de Usuários";
 }
 
-@* <h1>@ViewData["Listagem de usuarios"]</h1> *@
+@section Styles {
+    <link rel="stylesheet" href="~/css/User.css" />
+}
 
-<div class="text-center">
+<div class="container">
+
+
+    @if (TempData["MensagemSucesso"] != null)
+    {
+        <div class="alert alert-success" role="alert">
+            <button type="button" class="btn btn-danger btn-sm close-alert" aria-label="Close">X</button>
+            @TempData["MensagemSucesso"]
+        </div>
+    }
+
+    @if (TempData["MensagemErro"] != null)
+    {
+        <div class="alert alert-danger" role="alert">
+            <button type="button" class="btn btn-danger btn-sm close-alert" aria-label="Close">X</button>
+            @TempData["MensagemErro"]
+        </div>
+    }
+
+    <table class="table" id="table-users">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nome</th>
+                <th>Email</th>
+                <th>Perfil</th>
+                <th>Data de Cadastro</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model != null && Model.Any())
+            {
+                @foreach (var user in Model)
+                {
+                    <tr>
+                        <td scope="row">@user.Id</td>
+                        <td>@user.Name</td>
+                        <td>@user.Email</td>
+                        <td>@(user.Profile == ProfilesEnum.Admin ? "Admin" : "Padrao")</td>
+                        <td>@user.DateRegister</td>
+                        <td>
+                            <a role="button" asp-controller="User" asp-action="EditUser" asp-route-id="@user.Id" class="btn btn-primary">Editar</a>
+                            <a role="button" asp-controller="User" asp-action="DeleteConfirmation" asp-route-id="@user.Id" class="btn btn-danger">Excluir</a>
+                        </td>
+                    </tr>
+                }
+            }
+            else
+            {
+                <tr class="odd">
+                    <td valign="top" colspan="6">Nenhum usuário encontrado</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+    <br/>
+  <div class="d-grid gap-2 d-md-flex justify-content-md-start width=20% height=20%">
+        <a class="btn btn-primary" asp-controller="User" asp-action="Create" role="button">Adicionar Novo Usuário</a>
+    </div>
+
+
+@* <div class="text-center">
 
     <div class="d-grid gap-2 d-md-flex justify-content-md-start">
         <a class="btn btn-primary" asp-controller="User" asp-action="Create" role="button">Adicionar Novo Usuário</a>
@@ -68,4 +134,4 @@
         </tbody>
     </table>
 
-</div>
+</div> *@

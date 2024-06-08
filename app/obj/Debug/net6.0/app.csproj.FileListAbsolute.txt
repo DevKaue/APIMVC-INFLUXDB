@@ -45,7 +45,6 @@ D:\Faculdade\7Semestre\IOT\TesteAPI\app\obj\Debug\net6.0\staticwebassets.develop
 D:\Faculdade\7Semestre\IOT\TesteAPI\app\obj\Debug\net6.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
 D:\Faculdade\7Semestre\IOT\TesteAPI\app\obj\Debug\net6.0\scopedcss\bundle\app.styles.css
 D:\Faculdade\7Semestre\IOT\TesteAPI\app\obj\Debug\net6.0\scopedcss\projectbundle\app.bundle.scp.css
-D:\Faculdade\7Semestre\IOT\TesteAPI\app\obj\Debug\net6.0\app.csproj.CopyComplete
 D:\Faculdade\7Semestre\IOT\TesteAPI\app\obj\Debug\net6.0\app.dll
 D:\Faculdade\7Semestre\IOT\TesteAPI\app\obj\Debug\net6.0\refint\app.dll
 D:\Faculdade\7Semestre\IOT\TesteAPI\app\obj\Debug\net6.0\app.pdb
@@ -393,3 +392,11 @@ D:\Faculdade\7Semestre\IOT\TesteAPI\app\bin\Debug\net6.0\runtimes\win-x64\native
 D:\Faculdade\7Semestre\IOT\TesteAPI\app\bin\Debug\net6.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
 D:\Faculdade\7Semestre\IOT\TesteAPI\app\bin\Debug\net6.0\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
 D:\Faculdade\7Semestre\IOT\TesteAPI\app\obj\Debug\net6.0\app.MvcApplicationPartsAssemblyInfo.cs
+d:\Faculdade\7Semestre\IOT\TesteAPI\app\bin\Debug\net6.0\refs\System.Diagnostics.DiagnosticSource.dll
+d:\Faculdade\7Semestre\IOT\TesteAPI\app\obj\Debug\net6.0\app.sourcelink.json
+d:\Faculdade\7Semestre\IOT\TesteAPI\app\obj\Debug\net6.0\staticwebassets\msbuild.app.Microsoft.AspNetCore.StaticWebAssets.props
+d:\Faculdade\7Semestre\IOT\TesteAPI\app\obj\Debug\net6.0\staticwebassets\msbuild.build.app.props
+d:\Faculdade\7Semestre\IOT\TesteAPI\app\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.app.props
+d:\Faculdade\7Semestre\IOT\TesteAPI\app\obj\Debug\net6.0\staticwebassets\msbuild.buildTransitive.app.props
+d:\Faculdade\7Semestre\IOT\TesteAPI\app\obj\Debug\net6.0\staticwebassets.pack.json
+d:\Faculdade\7Semestre\IOT\TesteAPI\app\obj\Debug\net6.0\app.csproj.Up2Date

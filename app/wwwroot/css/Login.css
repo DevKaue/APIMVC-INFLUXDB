@@ -1,0 +1,122 @@
+/* Login.css */
+.container {
+    display: flex;
+    flex-direction: row;
+    width: 100vw;
+}
+
+.imageLogin {
+    position: relative;
+    width: 629px;
+}
+
+.h1 {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 38px;
+    font-weight: 700;
+    line-height: 48px;
+    text-align: left;
+}
+
+.h2 {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 28px;
+    font-weight: 400;
+    line-height: 36px;
+    text-align: center;
+}
+
+.logo {
+    width: 201px;
+    height: 201px;
+    top: 42px;
+    left: 1203px;
+}
+
+.input-container {
+    position: relative;
+    margin-left: 15px;
+}
+
+.input-container .input-icon {
+    position: absolute;
+    top: 34%;
+    width: 42.5px;
+    height: 34px;
+    color: #1E83B4;
+    z-index: 1;
+}
+
+.input-container input[type="email"],
+
+.link {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 28px;
+    text-align: center;
+    text-decoration: none;
+    color: white;
+}
+
+.login-container {
+    background-color: #003F63;
+    color: white;
+    padding: 40px;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    width: 820px;
+    margin-left: 300px;
+    gap: 0px;
+    opacity: 0px;
+}
+
+.login-container input {
+    position: relative;
+    width: 544px;
+    height: 47px;
+    padding: 10px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 28px;
+    text-align: left;
+}
+
+.login-container button {
+    width: 542px;
+    height: 76px;
+    padding: 24px 239px;
+    gap: 10px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 25px;
+    font-weight: 700;
+    line-height: 28px;
+    text-align: left;
+    background-color: #1E83B4;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.login-container button:hover {
+    background-color: #176b90;
+}
+
+.login-container p {
+    margin-top: 20px;
+}
+
+@media only screen and (min-width: 768px) {
+    .login-container {
+        max-width: 900px;
+        /* max-height: 1080px; */
+        margin: 0 auto;
+    }
+}
