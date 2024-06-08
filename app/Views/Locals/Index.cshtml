@@ -4,6 +4,10 @@
     ViewData["Title"] = "Locals Page";
 }
 
+@section Styles {
+    <link rel="stylesheet" href="~/css/Locals.css" />
+}
+
 <div class="text-center">
     @if (Model.Locals != null && Model.Locals.Any())
     {

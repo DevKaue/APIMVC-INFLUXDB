@@ -1,0 +1,37 @@
+/* Estilo geral da tabela */
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    background-color: #fff;
+}
+
+/* Estilo do cabeçalho da tabela */
+.table th {
+    font-weight: bold;
+    text-align: left;
+    padding: 8px;
+    border-bottom: 2px solid #dee2e6;
+}
+
+/* Estilo das células da tabela */
+.table td {
+    padding: 8px;
+    border-bottom: 1px solid #dee2e6;
+}
+
+/* Estilo das linhas pares da tabela */
+.table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+/* Estilo das células do cabeçalho */
+.table th,
+.table td {
+    border: none;
+}
+
+/* Estilo para quando o mouse passa por cima de uma linha da tabela */
+.table tbody tr:hover {
+    background-color: #f0f0f0;
+}
