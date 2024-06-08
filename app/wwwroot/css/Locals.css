@@ -1,37 +1,40 @@
-/* Estilo geral da tabela */
-.table {
-    width: 100%;
-    border-collapse: collapse;
-    border-spacing: 0;
-    background-color: #fff;
+/* Estilização para o título da página */
+.text-center h1 {
+  font-size: 2em;
+  margin-bottom: 20px;
 }
 
-/* Estilo do cabeçalho da tabela */
-.table th {
-    font-weight: bold;
-    text-align: left;
-    padding: 8px;
-    border-bottom: 2px solid #dee2e6;
+/* Estilização da tabela */
+#table-locals {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
 }
 
-/* Estilo das células da tabela */
-.table td {
-    padding: 8px;
-    border-bottom: 1px solid #dee2e6;
+#table-locals th,
+#table-locals td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: center;
 }
 
-/* Estilo das linhas pares da tabela */
-.table tbody tr:nth-child(even) {
-    background-color: #f9f9f9;
+/* Cor de fundo das células do cabeçalho */
+#table-locals th {
+  background-color: #f2f2f2;
+  color: black;
 }
 
-/* Estilo das células do cabeçalho */
-.table th,
-.table td {
-    border: none;
+/* Cores alternadas para as linhas da tabela */
+#table-locals tr:nth-child(even) {
+  background-color: #f9f9f9;
 }
 
-/* Estilo para quando o mouse passa por cima de uma linha da tabela */
-.table tbody tr:hover {
-    background-color: #f0f0f0;
+#table-locals tr:hover {
+  background-color: #ddd;
+}
+
+/* Estilização para quando não há dados disponíveis */
+.text-center p {
+  font-size: 1.2em;
+  color: red;
 }

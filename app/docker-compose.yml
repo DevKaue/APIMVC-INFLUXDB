@@ -2,7 +2,7 @@ version: "3.8"
 
 services:
   yourprojectname:
-    image: cofmhk
+    image: fmhk
     build:
       context: .
       dockerfile: Dockerfile
