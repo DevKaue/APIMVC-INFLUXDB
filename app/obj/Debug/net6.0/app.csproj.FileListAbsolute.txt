@@ -400,3 +400,7 @@ d:\Faculdade\7Semestre\IOT\TesteAPI\app\obj\Debug\net6.0\staticwebassets\msbuild
 d:\Faculdade\7Semestre\IOT\TesteAPI\app\obj\Debug\net6.0\staticwebassets\msbuild.buildTransitive.app.props
 d:\Faculdade\7Semestre\IOT\TesteAPI\app\obj\Debug\net6.0\staticwebassets.pack.json
 d:\Faculdade\7Semestre\IOT\TesteAPI\app\obj\Debug\net6.0\app.csproj.Up2Date
+d:\Faculdade\7Semestre\IOT\TesteAPI\app\bin\Debug\net6.0\Microsoft.OpenApi.dll
+d:\Faculdade\7Semestre\IOT\TesteAPI\app\bin\Debug\net6.0\Swashbuckle.AspNetCore.Swagger.dll
+d:\Faculdade\7Semestre\IOT\TesteAPI\app\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+d:\Faculdade\7Semestre\IOT\TesteAPI\app\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll

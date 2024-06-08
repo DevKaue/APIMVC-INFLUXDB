@@ -46,7 +46,7 @@ namespace app.Controllers
 
 
 
-        [HttpPost]
+        [HttpPost("User/CreateUser")]
         public IActionResult Create(UserModel user)
         {
             try
@@ -93,7 +93,7 @@ namespace app.Controllers
 
         }
 
-        [HttpPost]
+        [HttpPost("User/EditUser")]
         public IActionResult EditUser(UserNoPassword userNoPassword)
         {
 

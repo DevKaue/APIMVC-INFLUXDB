@@ -85,26 +85,5 @@ namespace app.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
-
-        // [Obsolete]
-        // public async Task<IActionResult> Index([FromServices] InfluxDBService service)
-        // {
-        //     var results = await service.QueryAsync(async query =>
-        //     {
-        //         var flux = "from(bucket:\"teste-bucket\") |> range(start: 0)";
-        //         var tables = await query.QueryAsync(flux, "CO2COMPANY");
-
-        //         return tables.SelectMany(table =>
-        //             table.Records.Select(record =>
-        //                 new AltitudeModel
-        //                 {
-        //                     Time = record.GetTime().ToString(),
-        //                     Altitude = Convert.ToInt32(record.GetValue())
-        //                 }));
-        //     });
-
-        //     return View(results);
-        // }
-
     }
 }

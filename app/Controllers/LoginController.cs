@@ -36,7 +36,7 @@ namespace app.Controllers
             return RedirectToAction("Index", "Login");
         }
 
-        [HttpPost]
+        [HttpPost("Login/Login")]
         public IActionResult Login(LoginModel loginModel)
         {
             try

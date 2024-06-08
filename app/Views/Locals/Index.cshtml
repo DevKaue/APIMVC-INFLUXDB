@@ -1,49 +1,36 @@
-@model IEnumerable<LocalsModel>
-
+@model LocalsViewModel
 
 @{
     ViewData["Title"] = "Locals Page";
 }
 
-@* <ul>
-
-    @foreach (var record in Model)
-    {
-        
-        <li>@record.DisplayText</li>
-
-    }
-</ul> *@
-
 <div class="text-center">
-
-
-    <table class="table" id="table-locals">
-        <thead>
-            <tr>
-                <th>Time</th>
-                <th>Codigo de Referencia</th>
-                <th>Mensagem de Display</th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
-            @if(Model != null && Model.Any())
-            {
-                    @foreach (var local in Model)
+    @if (Model.Locals != null && Model.Locals.Any())
+    {
+        <table class="table" id="table-locals">
+            <thead>
+                <tr>
+                    <th>Tempo</th>
+                    <th>Temperatura</th>
+                    <th>Umidade</th>
+                    <th>Nível de CO2</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var local in Model.Locals)
                 {
                     <tr>
                         <td scope="row">@local.Time</td>
-                        <td>@local.CodeReference</td>
-                        <td>@local.DisplayText</td>
+                        <td>@local.Temperatura</td>
+                        <td>@local.Umidade</td>
+                        <td>@local.Gas</td>
                     </tr>
                 }
-            }
-            else
-            {
-                <tr class="odd"><td valign="top" colspan="5">Nenhum local encontrado</td></tr>
-            }
-        </tbody>
-    </table>
-
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <p>Nenhum dado disponível.</p>
+    }
 </div>

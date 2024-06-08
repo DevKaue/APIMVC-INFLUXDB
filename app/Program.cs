@@ -12,10 +12,16 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddControllers();
 builder.Services.AddSingleton<InfluxDBService>(); // Adiciona o serviço InfluxDBService
 
+builder.Services.AddSwaggerGen(c =>
+{
+    c.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo { Title = "API CONTROL CO2", Version = "v1" });
+});
+
 // You'll create this class soon :)
-builder.Services.AddTransient<WriteRandomPlaneAltitudeInvocable>();
+// builder.Services.AddTransient<WriteRandomPlaneAltitudeInvocable>();
 builder.Services.AddScheduler();
 
 //Configs do Banco em SQLSERVER
@@ -43,12 +49,12 @@ var app = builder.Build();
 
 var serviceProvider = app.Services;
 
-serviceProvider.UseScheduler(scheduler =>
-{
-    scheduler
-        .Schedule<WriteRandomPlaneAltitudeInvocable>()
-        .EveryFiveSeconds();
-});
+// serviceProvider.UseScheduler(scheduler =>
+// {
+//     scheduler
+//         .Schedule<WriteRandomPlaneAltitudeInvocable>()
+//         .EveryFiveSeconds();
+// });
 
 
 // Configure the HTTP request pipeline.
@@ -58,6 +64,12 @@ if (!app.Environment.IsDevelopment())
     // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
+
+app.UseSwagger();
+app.UseSwaggerUI(c =>
+{
+    c.SwaggerEndpoint("/swagger/v1/swagger.json", "Nome da Sua API v1");
+});
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
