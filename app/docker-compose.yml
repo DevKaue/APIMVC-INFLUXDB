@@ -1,0 +1,20 @@
+version: "3.8"
+
+services:
+  yourprojectname:
+    image: fmhk
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8086:80" # Mapeia a porta 80 do contêiner para a porta 8086 do host
+    volumes:
+      - .:/app
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Production
+
+  port-forwarder:
+    image: alpine:latest
+    command: sh -c "apk add --no-cache socat && socat TCP-LISTEN:300,fork TCP:4.228.218.139:8086" # Substitua 4.228.218.139 pelo IP da sua VM
+    depends_on:
+      - yourprojectname

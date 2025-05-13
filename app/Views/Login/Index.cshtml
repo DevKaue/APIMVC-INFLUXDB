@@ -1,0 +1,75 @@
+@* @model LoginModel
+
+@{
+    Layout = "_LayoutLogout";
+    ViewData["Title"] = "Login";
+}
+
+
+ @if (TempData["MensagemErro"] != null)
+    {
+        <div class="alert alert-danger" role="alert">
+            <button type="button" class="btn btn-danger btn-sm close-alert" arial-label="Close">X</button>
+            @TempData["MensagemErro"]
+        </div>
+    }
+
+<form asp-controller="Login" asp-action="Login" method="post">
+  <div class="mb-3">
+    <label for="login" class="form-label">Login</label>
+    <input type="login" asp-for="Login" class="form-control" id="login" aria-describedby="emailHelp">
+    @Html.ValidationMessageFor(x => x.Login)
+  </div>
+  <div class="mb-3">
+    <label for="password" class="form-label">Password</label>
+    <input type="password" asp-for="Password" class="form-control" id="password">
+    @Html.ValidationMessageFor(x => x.Password)
+  </div>
+
+  <button type="submit" class="btn btn-primary btn-block">Entrar</button>
+</form> *@
+
+@model LoginModel
+
+@{
+    Layout = "_LayoutLogout";
+    ViewData["Title"] = "Login";
+}
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/Login.css" />
+}
+
+<div class="container">
+    <img src="~/images/Img-senha.svg" class="imageLogin" alt="Imagem de Login" />
+    <div class="login-container">
+        <img src="~/images/Logo-site.svg" class="logo" alt="Logo" />
+        <h1>Olá, seja bem-vindo de volta!</h1>
+        <h2>Faça seu login agora</h2>
+
+        @if (TempData["MensagemErro"] != null)
+        {
+            <div class="alert alert-danger" role="alert">
+                <button type="button" class="btn btn-danger btn-sm close-alert" aria-label="Close">X</button>
+                @TempData["MensagemErro"]
+            </div>
+        }
+
+        <form asp-controller="Login" asp-action="Login" method="post">
+            <div class="input-container mb-3">
+                <i class="fa fa-envelope input-icon"></i>
+                <input type="login" asp-for="Login" class="form-control" placeholder="Seu e-mail" />
+                @Html.ValidationMessageFor(x => x.Login, "", new { @class = "text-danger" })
+            </div>
+            <div class="input-container mb-3">
+                <i class="fa fa-lock input-icon"></i>
+                <input type="password" asp-for="Password" class="form-control" placeholder="Sua senha" />
+                @Html.ValidationMessageFor(x => x.Password, "", new { @class = "text-danger" })
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Entrar</button>
+        </form>
+
+        <a asp-controller="Login" asp-action="RecoverPassword" class="link">Esqueceu sua senha?</a>
+    </div>
+</div>
+

@@ -1,0 +1,40 @@
+/* Estilização para o título da página */
+.text-center h1 {
+  font-size: 2em;
+  margin-bottom: 20px;
+}
+
+/* Estilização da tabela */
+#table-locals {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+#table-locals th,
+#table-locals td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: center;
+}
+
+/* Cor de fundo das células do cabeçalho */
+#table-locals th {
+  background-color: #f2f2f2;
+  color: black;
+}
+
+/* Cores alternadas para as linhas da tabela */
+#table-locals tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+#table-locals tr:hover {
+  background-color: #ddd;
+}
+
+/* Estilização para quando não há dados disponíveis */
+.text-center p {
+  font-size: 1.2em;
+  color: red;
+}

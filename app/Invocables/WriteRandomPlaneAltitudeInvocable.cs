@@ -19,20 +19,49 @@ namespace app.Invocables
             _service = service;
         }
 
+        // [Obsolete]
+        // public Task Invoke()
+        // {
+        //     _service.Write(write =>
+        //     {
+        //         var point = PointData.Measurement("altitude")
+        //             .Tag("plane", "test-plane")
+        //             .Field("value", _random.Next(1000, 5000))
+        //             .Timestamp(DateTime.UtcNow, WritePrecision.Ns);
+
+        //         write.WritePoint(point,"teste-bucket", "CO2COMPANY");
+        //     });
+
+        //     return Task.CompletedTask;
+        // }
+
+        // [Obsolete]
+        // public Task Invoke()
+        // {
+        //     _service.Write(write =>
+        //     {
+        //         var point = PointData.Measurement("estufas")
+        //             .Tag("local", "test-local")
+        //             .Field("value", _random.Next(1, 5))
+        //             .Timestamp(DateTime.UtcNow, WritePrecision.Ns);
+
+        //         write.WritePoint(point, "teste-bucket", "fmhk");
+        //     });
+
+        //     return Task.CompletedTask;
+        // }
+
         [Obsolete]
-        public Task Invoke()
+        public async Task Invoke()
         {
-            _service.Write(write =>
-            {
-                var point = PointData.Measurement("altitude")
-                    .Tag("plane", "test-plane")
-                    .Field("value", _random.Next(1000, 5000))
-                    .Timestamp(DateTime.UtcNow, WritePrecision.Ns);
+            var point = PointData.Measurement("estufas")
+                .Tag("local", "test-local")
+                .Field("value", _random.Next(1, 5))
+                .Timestamp(DateTime.UtcNow, WritePrecision.Ns);
 
-                write.WritePoint(point,"teste-bucket", "CO2COMPANY");
-            });
-
-            return Task.CompletedTask;
+            await _service.WriteAsync(point, "teste-bucket", "fmhk");
         }
+
+
     }
 }

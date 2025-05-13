@@ -1,0 +1,87 @@
+@model AlertModels
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sensor Dashboard</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Sensor Dashboard</h1>
+
+        <div>
+            <p>Temperature: @Model.SensorData.Temperatura</p>
+            <p>Humidity: @Model.SensorData.Umidade</p>
+            <p>CO2 Level: @Model.SensorData.LevelCO2</p>
+        </div>
+
+        <!-- Modals -->
+        @if (Model.TemperaturaAlert)
+        {
+            <div class="modal" tabindex="-1" role="dialog" id="temperatureModal" style="display:block;">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Alerta de Temperatura</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <p>A Temperatura está fora do range!</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+
+        @if (Model.UmidadeAlert)
+        {
+            <div class="modal" tabindex="-1" role="dialog" id="humidityModal" style="display:block;">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Alerta de Umidade</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <p>A umidade está fora do range!</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+
+        @if (Model.LevelCO2Alert)
+        {
+            <div class="modal" tabindex="-1" role="dialog" id="co2Modal" style="display:block;">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Alerta nível de CO2</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <p>O nível de CO2 está fora do range!</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</body>
+</html>

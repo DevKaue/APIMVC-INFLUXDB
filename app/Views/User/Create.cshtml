@@ -1,0 +1,53 @@
+@using app.Enums
+@model UserModel
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/User-Forms.css" />
+}
+
+<div class="container">
+    
+    <div class="text-center">
+    <h1 class="display-4">Cadastrar Usuario</h1>
+    </div>
+
+    <form asp-controller="User" asp-action="CreateUser" method="post">
+        <div class="form-group">
+            <label for="nome">Nome</label>
+            <input type="text" asp-for="Name" class="form-control" placeholder="Digite o nome do usuario">
+            @Html.ValidationMessageFor(x => x.Name)
+        </div>
+
+        <div class="form-group">
+            <label for="email">E-mail</label>
+            <input type="text" asp-for="Email" class="form-control" placeholder="Digite o e-mail do usuario">
+            @Html.ValidationMessageFor(x => x.Email)
+        </div>
+
+        <div class="form-group">
+            <label for="email">Login</label>
+            <input type="text" asp-for="Login" class="form-control" placeholder="Digite o login do usuario">
+            @Html.ValidationMessageFor(x => x.Login)
+        </div>
+
+        <div class="form-group">
+            <label for="nome" class="form-label">Perfil</label>
+            <select asp-for="Profile" class="custom-select form-control">
+                <option value="">Selecione</option>
+                <option value="@ProfilesEnum.Admin">Admin</option>
+                <option value="@ProfilesEnum.Default">Padrao</option>
+            </select>
+            @Html.ValidationMessageFor(x => x.Profile)
+        </div>
+
+        <div class="form-group">
+            <label for="email">Senha</label>
+            <input type="password" asp-for="Password" class="form-control" placeholder="Digite a senha do usuario">
+            @Html.ValidationMessageFor(x => x.Password)
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-block">Adicionar</button>
+        <a class="btn btn-secondary" asp-controller="Home" asp-action="Index" role="button">Voltar</a>
+    </form>
+
+</div>

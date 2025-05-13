@@ -1,0 +1,122 @@
+@model LocalsViewModel
+
+@{
+    ViewData["Title"] = "Locals Page";
+}
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/Locals.css" />
+}
+
+<div class="text-center">
+    @if (Model.Locals != null && Model.Locals.Any())
+    {
+        <table class="table" id="table-locals">
+            <thead>
+                <tr>
+                    <th>Tempo</th>
+                    <th>Temperatura</th>
+                    <th>Umidade</th>
+                    <th>Nível de CO2</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var local in Model.Locals)
+                {
+                    <tr>
+                        <td scope="row">@local.Time</td>
+                        <td>@local.Temperatura</td>
+                        <td>@local.Umidade</td>
+                        <td>@local.Gas</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+        <br/>
+
+        <canvas id="localsChart" width="400" height="200"></canvas>
+    }
+    else
+    {
+        <p>Nenhum dado disponível.</p>
+    }
+</div>
+
+
+@section Scripts {
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Verifica se a tabela existe
+            var table = document.getElementById("table-locals");
+            if (table) {
+                var times = [];
+                var temperaturas = [];
+                var umidades = [];
+                var gases = [];
+
+                // Interage com a as linhas da tabela para extrair os dados
+                var rows = table.querySelectorAll("tbody tr");
+                rows.forEach(function(row) {
+                    var cells = row.querySelectorAll("td");
+                    times.push(cells[0].textContent.trim());
+                    temperaturas.push(parseFloat(cells[1].textContent.trim()));
+                    umidades.push(parseFloat(cells[2].textContent.trim()));
+                    gases.push(parseFloat(cells[3].textContent.trim()));
+                });
+
+                // Configuração do gráfico
+                var ctx = document.getElementById('localsChart').getContext('2d');
+                var localsChart = new Chart(ctx, {
+                    type: 'line', // Tipo do gráfico
+                    data: {
+                        labels: times, // Eixos X
+                        datasets: [
+                            {
+                                label: 'Temperatura',
+                                data: temperaturas,
+                                borderColor: 'rgba(255, 99, 132, 1)',
+                                backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                                fill: false
+                            },
+                            {
+                                label: 'Umidade',
+                                data: umidades,
+                                borderColor: 'rgba(54, 162, 235, 1)',
+                                backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                                fill: false
+                            },
+                            {
+                                label: 'Nível de CO2',
+                                data: gases,
+                                borderColor: 'rgba(75, 192, 192, 1)',
+                                backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                                fill: false
+                            }
+                        ]
+                    },
+                    options: {
+                        responsive: true,
+                        scales: {
+                            x: {
+                                display: true,
+                                title: {
+                                    display: true,
+                                    text: 'Tempo'
+                                }
+                            },
+                            y: {
+                                display: true,
+                                title: {
+                                    display: true,
+                                    text: 'Valores'
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+        });
+    </script>
+}

@@ -5,48 +5,79 @@ build_property.UsingMicrosoftNETSdkWeb = true
 build_property.ProjectTypeGuids = 
 build_property.InvariantGlobalization = 
 build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = app
 build_property.RootNamespace = app
-build_property.ProjectDir = D:\Faculdade\7Semestre\IOT\TesteAPI\app\
+build_property.ProjectDir = C:\Users\ModalGR\Desktop\Facul\APIINFLUX\APIMVC-INFLUXDB\app\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
-build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = D:\Faculdade\7Semestre\IOT\TesteAPI\app
+build_property.GenerateRazorMetadataSourceChecksumAttributes = true
+build_property.MSBuildProjectDirectory = C:\Users\ModalGR\Desktop\Facul\APIINFLUX\APIMVC-INFLUXDB\app
 build_property._RazorSourceGeneratorDebug = 
 
-[D:/Faculdade/7Semestre/IOT/TesteAPI/app/Views/Home/Index.cshtml]
+[C:/Users/ModalGR/Desktop/Facul/APIINFLUX/APIMVC-INFLUXDB/app/Views/Alerts/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWxlcnRzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ModalGR/Desktop/Facul/APIINFLUX/APIMVC-INFLUXDB/app/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Faculdade/7Semestre/IOT/TesteAPI/app/Views/Home/Privacy.cshtml]
+[C:/Users/ModalGR/Desktop/Facul/APIINFLUX/APIMVC-INFLUXDB/app/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Faculdade/7Semestre/IOT/TesteAPI/app/Views/Shared/Error.cshtml]
+[C:/Users/ModalGR/Desktop/Facul/APIINFLUX/APIMVC-INFLUXDB/app/Views/Locals/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9jYWxzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ModalGR/Desktop/Facul/APIINFLUX/APIMVC-INFLUXDB/app/Views/Login/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9naW5cSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ModalGR/Desktop/Facul/APIINFLUX/APIMVC-INFLUXDB/app/Views/Shared/Components/Menu/Default.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcTWVudVxEZWZhdWx0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ModalGR/Desktop/Facul/APIINFLUX/APIMVC-INFLUXDB/app/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Faculdade/7Semestre/IOT/TesteAPI/app/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/ModalGR/Desktop/Facul/APIINFLUX/APIMVC-INFLUXDB/app/Views/Shared/_LayoutLogout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXRMb2dvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ModalGR/Desktop/Facul/APIINFLUX/APIMVC-INFLUXDB/app/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Faculdade/7Semestre/IOT/TesteAPI/app/Views/User/Cadastro.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxDYWRhc3Ryby5jc2h0bWw=
+[C:/Users/ModalGR/Desktop/Facul/APIINFLUX/APIMVC-INFLUXDB/app/Views/User/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Faculdade/7Semestre/IOT/TesteAPI/app/Views/User/Index.cshtml]
+[C:/Users/ModalGR/Desktop/Facul/APIINFLUX/APIMVC-INFLUXDB/app/Views/User/DeleteConfirmation.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxEZWxldGVDb25maXJtYXRpb24uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ModalGR/Desktop/Facul/APIINFLUX/APIMVC-INFLUXDB/app/Views/User/EditUser.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxFZGl0VXNlci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ModalGR/Desktop/Facul/APIINFLUX/APIMVC-INFLUXDB/app/Views/User/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Faculdade/7Semestre/IOT/TesteAPI/app/Views/_ViewImports.cshtml]
+[C:/Users/ModalGR/Desktop/Facul/APIINFLUX/APIMVC-INFLUXDB/app/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Faculdade/7Semestre/IOT/TesteAPI/app/Views/_ViewStart.cshtml]
+[C:/Users/ModalGR/Desktop/Facul/APIINFLUX/APIMVC-INFLUXDB/app/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Faculdade/7Semestre/IOT/TesteAPI/app/Views/Shared/_Layout.cshtml]
+[C:/Users/ModalGR/Desktop/Facul/APIINFLUX/APIMVC-INFLUXDB/app/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-uwi58k5n9p
